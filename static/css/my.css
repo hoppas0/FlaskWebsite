@@ -1,0 +1,11 @@
+.spacer {
+    display: inline-block; /* 使 span 元素变成一个行内块级元素 */
+    width: 50px; /* 设置占位符的宽度 */
+    height: 20px; /* 设置占位符的高度（可选） */
+}
+.centered-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

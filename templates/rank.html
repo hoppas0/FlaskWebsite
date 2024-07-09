@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block header %}
+            <div class="life_con2_title text-center">
+                这里是B站视频排行榜信息
+            </div>
+            <div class="life_con2_text text-center">
+                这些信息来自<a href="https://www.bilibili.com/" target="_blank">bilibili</a>，收集排行榜前100个视频的信息，可以用来分析如何制作一个热门视频。点击可以打开视频
+            </div>
+{% endblock %}
+
+{% block content %}
+    <div class="life_content3">
+        <div class="container">
+            <div class="row">
+                {% for data in datas %}
+                    <div class="col-12 col-xs-12 col-sm-6 col-lg-4 life_con3_con_out">
+                        <a href="https://www.bilibili.com/video/{{ data[1] }}" referrer="no-referrer" target="_blank">
+                            <div class="life_con3_con">
+                                <div class="life_con3_img">
+                                    <img class="w-100" src="{{data[3]}}" alt="">
+                                </div>
+                                <div class="life_con3_txt">
+                                    <div class="life_con3_title text-center">
+                                        {{data[2]}}
+                                    </div>
+                                    <div>{{ data[1] }}</div>
+                                    <div>UP:{{data[4]}}</div>
+                                    <div>播放量:{{data[5]}}</div>
+                                    <div>弹幕数:{{data[6]}}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

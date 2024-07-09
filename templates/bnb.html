@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block header %}
+            <div class="life_con2_title text-center">
+                这里是收集的民宿信息
+            </div>
+            <div class="life_con2_text text-center">
+                这些信息来自<a href="https://www.muniao.com/" target="_blank">木鸟民宿网</a>，储存在MySQL数据库中，目前只有北京和上海的信息
+            </div>
+{% endblock %}
+
+{% block content %}
+    <div class="life_content3">
+        <div class="container">
+            <div class="row">
+                {% for data in datas %}
+                    <div class="col-12 col-xs-12 col-sm-6 col-lg-4 life_con3_con_out">
+                        <div class="life_con3_con">
+                            <div class="life_con3_img">
+                                <img class="w-100" src="{{data[8]}}" alt="">
+                            </div>
+                            <div class="life_con3_txt">
+                                <div class="life_con3_title text-center">
+                                    {{data[2]}}
+                                </div>
+                                <div>城市:{{ d[data[1]] }}</div>
+                                <div>评分:{{data[3]}}</div>
+                                <div>户型:{{data[4]}}</div>
+                                <div>出租类型:{{data[5]}}</div>
+                                <div>可住{{data[6]}}人</div>
+                                <div>价格:{{data[7]}}</div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="centered-div">
+            <a href="/bnb?page=1">首页</a>
+            <span class="spacer"></span>
+            <a href="/bnb?page={{ page - 1 }}">上一页</a>
+            <span class="spacer"></span>
+            <span>{{ page }}</span>
+            <span class="spacer"></span>
+            <a href="/bnb?page={{ page + 1 }}">下一页</a>
+            <span class="spacer"></span>
+            <a href="/bnb?page={{ total_page }}">尾页</a>
+        </div>
+    </div>
+{% endblock %}
